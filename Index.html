@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f8fc">
+  <meta name="description" content="Barangay Bayan community management dashboard preview.">
+  <title>Dashboard | Bayan ng Anda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 20v-1.6a3.4 3.4 0 0 0-3.4-3.4H6.4A3.4 3.4 0 0 0 3 18.4V20"/><circle cx="9.5" cy="7.5" r="3.5"/><path d="M17 11a3.5 3.5 0 1 0-1.4-6.7M21 20v-1.6a3.4 3.4 0 0 0-2.5-3.3"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3zM9 3v15M15 6v15"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 14 4-4 4 3 6-7"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1 1.4 1.1-1.4 2.4-1.7-.7a8 8 0 0 1-1.8 1l-.3 1.8h-2.8l-.3-1.8a8 8 0 0 1-1.8-1l-1.7.7-1.4-2.4 1.4-1.1a7 7 0 0 1 0-2l-1.4-1.1 1.4-2.4 1.7.7a8 8 0 0 1 1.8-1l.3-1.8h2.8l.3 1.8a8 8 0 0 1 1.8 1l1.7-.7 1.4 2.4-1.4 1.1a7 7 0 0 1 0 2Z" transform="translate(-1 -2) scale(1.08)"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5.6 9a7 7 0 0 1 11.6-2L20 12M4 12l2.8 5a7 7 0 0 0 11.6-2"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol>
+    <symbol id="i-location" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
+  </svg>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#overview" aria-label="Barangay Bayan home">
+        <span class="brand-mark"><img src="assets/barangay-seal.png" alt=""></span>
+        <span class="brand-copy"><strong>BARANGAY</strong><small>BAYAN MANAGEMENT</small></span>
+      </a>
+
+      <div class="sidebar-label">WORKSPACE</div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="#overview" data-section="overview"><svg><use href="#i-grid"/></svg><span>Overview</span></a>
+        <a class="nav-link" href="#residents" data-section="residents"><svg><use href="#i-users"/></svg><span>Residents</span><span class="nav-count">2,481</span></a>
+        <a class="nav-link" href="#records" data-section="records"><svg><use href="#i-file"/></svg><span>Certificates &amp; records</span></a>
+        <a class="nav-link" href="#blotter" data-section="blotter"><svg><use href="#i-briefcase"/></svg><span>Blotter records</span><span class="nav-dot"></span></a>
+        <a class="nav-link" href="#officials" data-section="officials"><svg><use href="#i-map"/></svg><span>Barangay officials</span></a>
+        <a class="nav-link" href="#reports" data-section="reports"><svg><use href="#i-chart"/></svg><span>Reports &amp; analytics</span></a>
+      </nav>
+
+      <div class="sidebar-label sidebar-label-lower">PREFERENCES</div>
+      <nav class="main-nav" aria-label="Preferences">
+        <a class="nav-link" href="#settings" data-section="settings"><svg><use href="#i-settings"/></svg><span>Settings</span></a>
+      </nav>
+
+      <div class="sidebar-spacer"></div>
+      <div class="help-card">
+        <span class="help-icon"><svg><use href="#i-shield"/></svg></span>
+        <strong>Need a hand?</strong>
+        <p>Your community tools, all in one place.</p>
+        <a href="#help" class="help-link">Visit help center <svg><use href="#i-arrow"/></svg></a>
+      </div>
+      <button class="profile-button" type="button" aria-label="Account options">
+        <span class="avatar avatar-admin">JD</span>
+        <span class="profile-copy"><strong>Juan Dela Cruz</strong><small>Barangay Administrator</small></span>
+        <svg class="profile-more"><use href="#i-more"/></svg>
+      </button>
+    </aside>
+
+    <main class="main-content" id="overview">
+      <header class="topbar">
+        <button class="mobile-menu" id="menuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+        <div class="breadcrumb"><span>Workspace</span><span class="breadcrumb-slash">/</span><strong>Overview</strong></div>
+        <div class="topbar-actions">
+          <label class="search-box">
+            <svg><use href="#i-search"/></svg>
+            <input id="globalSearch" type="search" placeholder="Search officials..." aria-label="Search officials">
+            <kbd>Ctrl K</kbd>
+          </label>
+          <button class="icon-button notification-button" type="button" aria-label="Notifications">
+            <svg><use href="#i-bell"/></svg><span class="notification-dot"></span>
+          </button>
+          <div class="topbar-divider"></div>
+          <span class="topbar-date"><svg><use href="#i-calendar"/></svg><span id="todayDate"></span></span>
+        </div>
+      </header>
+
+      <div class="page-content">
+        <section class="welcome-row">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-line"></span> BAYAN NG ANDA · DISTRICT 1</div>
+            <h1>Good morning, Juan <span class="wave">✦</span></h1>
+            <p class="welcome-subtitle">Here’s what’s happening in your community today.</p>
+          </div>
+          <div class="welcome-actions">
+            <button class="button button-secondary" id="refreshButton" type="button"><svg><use href="#i-refresh"/></svg>Refresh data</button>
+            <button class="button button-primary" id="quickActionButton" type="button"><svg><use href="#i-plus"/></svg>Quick action</button>
+          </div>
+        </section>
+
+        <section class="stats-grid" aria-label="Community statistics">
+          <article class="stat-card">
+            <div class="stat-top"><span class="stat-icon icon-cyan"><svg><use href="#i-users"/></svg></span><span class="stat-period"><span class="live-dot"></span> Live</span></div>
+            <p class="stat-label">Total population</p><div class="stat-value">2,481 <span class="stat-change">+2.4%</span></div>
+            <div class="stat-foot"><span>vs. last quarter</span><span class="mini-chart chart-cyan"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span class="stat-icon icon-blue"><svg><use href="#i-users"/></svg></span><span class="stat-period">This year</span></div>
+            <p class="stat-label">Registered voters</p><div class="stat-value">1,864 <span class="stat-change">+1.8%</span></div>
+            <div class="stat-foot"><span>75.1% of residents</span><span class="mini-chart chart-blue"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span class="stat-icon icon-violet"><svg><use href="#i-file"/></svg></span><span class="stat-period">This month</span></div>
+            <p class="stat-label">Documents issued</p><div class="stat-value">148 <span class="stat-change">+12.6%</span></div>
+            <div class="stat-foot"><span>Certificates &amp; clearances</span><span class="mini-chart chart-violet"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span class="stat-icon icon-amber"><svg><use href="#i-briefcase"/></svg></span><span class="stat-period">Needs attention</span></div>
+            <p class="stat-label">Active blotter cases</p><div class="stat-value">08 <span class="stat-change stat-neutral">2 scheduled</span></div>
+            <div class="stat-foot"><span>Across all case statuses</span><span class="mini-chart chart-amber"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+          </article>
+        </section>
+
+        <section class="content-grid">
+          <article class="panel officials-panel" id="officials">
+            <div class="panel-heading">
+              <div><div class="section-kicker">YOUR TEAM</div><h2>Barangay officials</h2><p class="panel-description">Current elected officials and committee assignments.</p></div>
+              <button class="text-button" type="button" data-toast="Officials directory opened in preview mode.">View directory <svg><use href="#i-arrow"/></svg></button>
+            </div>
+            <div class="table-toolbar">
+              <span class="table-count"><span class="live-dot"></span> 8 active officials</span>
+              <button class="filter-button" type="button" data-toast="Filters are available in the full portal."><svg><use href="#i-settings"/></svg> Filter</button>
+            </div>
+            <div class="table-scroll">
+              <table>
+                <thead><tr><th>OFFICIAL</th><th>POSITION</th><th>COMMITTEE</th><th>STATUS</th></tr></thead>
+                <tbody id="officialsTable">
+                  <tr><td><span class="person"><span class="avatar avatar-a">MR</span><span><strong>Maria Reyes</strong><small>Term ends Jun 2028</small></span></span></td><td><span class="position-tag">Punong Barangay</span></td><td>Executive</td><td><span class="status-pill"><i></i> Active</span></td></tr>
+                  <tr><td><span class="person"><span class="avatar avatar-b">SC</span><span><strong>Samuel Cruz</strong><small>Term ends Jun 2028</small></span></span></td><td><span class="position-tag">Barangay Kagawad</span></td><td>Peace &amp; Order</td><td><span class="status-pill"><i></i> Active</span></td></tr>
+                  <tr><td><span class="person"><span class="avatar avatar-c">LT</span><span><strong>Liza Torres</strong><small>Term ends Jun 2028</small></span></span></td><td><span class="position-tag">Barangay Kagawad</span></td><td>Health &amp; Sanitation</td><td><span class="status-pill"><i></i> Active</span></td></tr>
+                  <tr><td><span class="person"><span class="avatar avatar-d">RG</span><span><strong>Ramon Garcia</strong><small>Term ends Jun 2028</small></span></span></td><td><span class="position-tag">Barangay Kagawad</span></td><td>Infrastructure</td><td><span class="status-pill"><i></i> Active</span></td></tr>
+                  <tr><td><span class="person"><span class="avatar avatar-e">AP</span><span><strong>Angela Perez</strong><small>Term ends Jun 2028</small></span></span></td><td><span class="position-tag">Barangay Kagawad</span></td><td>Education &amp; Culture</td><td><span class="status-pill"><i></i> Active</span></td></tr>
+                </tbody>
+              </table>
+              <div class="empty-state" id="emptySearch" hidden>No officials match your search.</div>
+            </div>
+            <div class="panel-footer"><span id="officialCountSummary">Showing <strong>5</strong> of <strong>8</strong> officials</span><button type="button" class="pagination-button" data-toast="You’re viewing the latest officials.">See all officials <svg><use href="#i-arrow"/></svg></button></div>
+          </article>
+
+          <div class="right-column">
+            <article class="panel blotter-panel" id="blotter">
+              <div class="panel-heading compact-heading">
+                <div><div class="section-kicker">CASE OVERVIEW</div><h2>Blotter records</h2></div>
+                <button class="more-button" type="button" aria-label="More blotter options" data-toast="More case options are available in the full portal."><svg><use href="#i-more"/></svg></button>
+              </div>
+              <p class="panel-description blotter-description">Case distribution at a glance.</p>
+              <div class="blotter-summary">
+                <div class="case-card case-settled"><div><span class="case-icon"><svg><use href="#i-check"/></svg></span><span class="case-status">Settled</span></div><strong>24</strong><small>Resolved cases</small><span class="case-bottom">↑ 4 this month</span></div>
+                <div class="case-card case-open"><div><span class="case-icon"><svg><use href="#i-clock"/></svg></span><span class="case-status">Unsettled</span></div><strong>06</strong><small>Under review</small><span class="case-bottom">2 need follow-up</span></div>
+                <div class="case-card case-scheduled"><div><span class="case-icon"><svg><use href="#i-calendar"/></svg></span><span class="case-status">Scheduled</span></div><strong>02</strong><small>Upcoming hearings</small><span class="case-bottom">Next: Nov 28</span></div>
+                <div class="case-card case-unscheduled"><div><span class="case-icon"><svg><use href="#i-file"/></svg></span><span class="case-status">Unscheduled</span></div><strong>00</strong><small>Awaiting schedule</small><span class="case-bottom">All up to date</span></div>
+              </div>
+              <button class="panel-link" type="button" data-toast="Blotter records opened in preview mode.">Manage blotter records <svg><use href="#i-arrow"/></svg></button>
+            </article>
+
+            <article class="panel activity-panel">
+              <div class="panel-heading compact-heading">
+                <div><div class="section-kicker">LATEST UPDATES</div><h2>Recent activity</h2></div>
+                <button class="more-button" type="button" aria-label="More activity options" data-toast="Activity options are available in the full portal."><svg><use href="#i-more"/></svg></button>
+              </div>
+              <div class="activity-list">
+                <div class="activity-item"><span class="activity-icon activity-cyan"><svg><use href="#i-file"/></svg></span><div><p><strong>Barangay clearance</strong> issued to Ana Santos</p><small>Records office <span>·</span> 10 min ago</small></div></div>
+                <div class="activity-item"><span class="activity-icon activity-blue"><svg><use href="#i-users"/></svg></span><div><p>New resident <strong>profile registered</strong></p><small>Resident services <span>·</span> 42 min ago</small></div></div>
+                <div class="activity-item"><span class="activity-icon activity-amber"><svg><use href="#i-briefcase"/></svg></span><div><p>Case <strong>#BR-2026-084</strong> marked for review</p><small>Blotter desk <span>·</span> 1 hour ago</small></div></div>
+              </div>
+              <button class="activity-link" type="button" data-toast="You’re viewing the latest activity.">View activity log <svg><use href="#i-arrow"/></svg></button>
+            </article>
+          </div>
+        </section>
+
+        <footer class="page-footer"><span><span class="footer-pulse"></span> All systems operational</span><span>Barangay Bayan Management System <span class="footer-separator">·</span> Preview v1.0</span></footer>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script>
+    const todayDate = document.getElementById("todayDate");
+    const dateFormatter = new Intl.DateTimeFormat("en-PH", { weekday: "short", month: "short", day: "numeric", year: "numeric" });
+    todayDate.textContent = dateFormatter.format(new Date());
+
+    const toast = document.getElementById("toast");
+    let toastTimer;
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("visible");
+      window.clearTimeout(toastTimer);
+      toastTimer = window.setTimeout(() => toast.classList.remove("visible"), 2600);
+    }
+
+    document.querySelectorAll("[data-toast]").forEach((button) => {
+      button.addEventListener("click", () => showToast(button.dataset.toast));
+    });
+
+    document.getElementById("refreshButton").addEventListener("click", (event) => {
+      const button = event.currentTarget;
+      button.classList.add("is-refreshing");
+      window.setTimeout(() => button.classList.remove("is-refreshing"), 650);
+      showToast("Dashboard data is up to date.");
+    });
+
+    document.getElementById("quickActionButton").addEventListener("click", () => {
+      showToast("Quick actions are ready in the full portal.");
+    });
+
+    const globalSearch = document.getElementById("globalSearch");
+    const officialRows = [...document.querySelectorAll("#officialsTable tr")];
+    const emptySearch = document.getElementById("emptySearch");
+    const officialCountSummary = document.getElementById("officialCountSummary");
+    globalSearch.addEventListener("input", () => {
+      const query = globalSearch.value.trim().toLowerCase();
+      let visibleRows = 0;
+      officialRows.forEach((row) => {
+        const matches = row.textContent.toLowerCase().includes(query);
+        row.hidden = !matches;
+        if (matches) visibleRows += 1;
+      });
+      emptySearch.hidden = visibleRows !== 0;
+      officialCountSummary.textContent = query
+        ? `${visibleRows} matching official${visibleRows === 1 ? "" : "s"}`
+        : "Showing 5 of 8 officials";
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        globalSearch.focus();
+      }
+    });
+
+    const menuToggle = document.getElementById("menuToggle");
+    const sidebar = document.getElementById("sidebar");
+    menuToggle.addEventListener("click", () => {
+      const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!expanded));
+      sidebar.classList.toggle("sidebar-open", !expanded);
+    });
+
+    document.querySelectorAll(".nav-link").forEach((link) => {
+      link.addEventListener("click", () => {
+        document.querySelectorAll(".nav-link").forEach((item) => item.classList.remove("active"));
+        link.classList.add("active");
+        sidebar.classList.remove("sidebar-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        if (link.dataset.section !== "overview" && !document.getElementById(link.dataset.section)) {
+          showToast(`${link.querySelector("span").textContent} is available in the full portal.`);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
